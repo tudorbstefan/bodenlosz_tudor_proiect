@@ -1,0 +1,19 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<link href="~/css/bg.css" rel="stylesheet" id="bg-css">
+<div class="text-center">
+    <h1 class="display-4">Welcome to my comicbooks website</h1>
+    <hr />
+    <ul class="navbar-nav flex-grow-1">
+        <li class="nav-item">
+            <h2><a class="nav-link text-dark" asp-area="" asp-controller="ComicBooks" asp-action="Index">Comicbooks</a></h2>
+        </li>
+        <li class="nav-item">
+            <h2><a class="nav-link text-dark" asp-area="" asp-controller="Publishers" asp-action="Index">Publishers</a></h2>
+        </li>
+        <li class="nav-item">
+            <h2><a class="nav-link text-dark" asp-area="" asp-controller="Dimensions" asp-action="Index">Comicbooks dimensions</a></h2>
+        </li>
+    </ul>
+</div>

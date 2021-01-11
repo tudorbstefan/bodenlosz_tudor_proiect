@@ -1,0 +1,41 @@
+@model IEnumerable<ComicBookStoreProject.Models.Dimension>
+
+@{
+    ViewData["Title"] = "Dimensions";
+}
+<link href="~/css/bg.css" rel="stylesheet" id="bg-css">
+<h1>Dimensions library</h1>
+
+<p>
+    <a asp-action="Create">Insert new dimension</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Unit)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Unit)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit this dimensions</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details about dimension</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete this dimensions</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

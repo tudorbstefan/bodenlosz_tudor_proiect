@@ -1,0 +1,47 @@
+@model IEnumerable<ComicBookStoreProject.Models.Publisher>
+
+@{
+    ViewData["Title"] = "Publishers";
+}
+<link href="~/css/bg.css" rel="stylesheet" id="bg-css">
+<h1>Publishers library</h1>
+
+<p>
+    <a asp-action="Create">Insert new publisher</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Founded)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Founded)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit this publisher</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details about this publisher</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete this publisher</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

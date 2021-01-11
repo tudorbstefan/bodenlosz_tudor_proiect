@@ -1,0 +1,77 @@
+@model IEnumerable<ComicBookStoreProject.Models.Comicbook>
+
+@{
+    ViewData["Title"] = "Library";
+}
+<link href="~/css/bg.css" rel="stylesheet" id="bg-css">
+<h1>Comicbooks library</h1>
+
+<p>
+    <a asp-action="Create">Insert new comicbook</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Publisher)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dimension)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pages)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PublishingDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Publisher.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dimension.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pages)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublishingDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ISSN">Edit this comicbook</a> |
+                <a asp-action="Details" asp-route-id="@item.ISSN">Details about comicbook</a> |
+                <a asp-action="Delete" asp-route-id="@item.ISSN">Delete this comicbook</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
